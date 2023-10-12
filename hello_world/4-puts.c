@@ -1,4 +1,3 @@
-#!/bin/bash
 #include <stdio.h>
 /**
  * main - Print a message beging with a specific char
