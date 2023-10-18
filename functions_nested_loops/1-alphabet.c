@@ -1,15 +1,15 @@
-#include <unistd.h>
 #include "main.h"
 /**
- * main - print_alphabet(void)
+ * print_alphabet - Print all letter
  *
- * Return: 0.
+ * Return: 0
  */
- void print_aplphabet (void);
+void print_alphabet(void)
 {
-	char alpha;
-	for (aplha =0 ; a=<z; a++)
-		{
+char c;
+
+for (c = 'a'; c <= 'z'; c++)
+{
 	_putchar(c);
 }
 _putchar('\n');
