@@ -1,46 +1,40 @@
 #include "main.h"
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
- * str_concat -  a function that concatenates two strings
- * @s1: pointer to character
- * @s2: pointer to character
- * Return: pointer to string or NULL if it fails
- */
+* str_concat - a function that concatenates two strings.
+*@s1:First string
+*@s2:Second string
+*
+*Return: NULL in case of failure , but pointer to new string in
+*case of success
+*/
+
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, len, len1, len2;
-	char *str;
+	char *concat_str;
+	int index, concat_index = 0,  len = 0;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		return (NULL);
-	}
-	if (s1 == NULL && s2 != NULL)
-	{
-		return (s2);
-	}
-	else if (s1 != NULL && s2 == NULL)
-	{
-		return (s1);
-	}
+	if (s1 == NULL)
+		s1 = "";
 
-	len1 = strlen(s1);
-	len2 = strlen(s2);
-	len = len1 + len2;
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
-	{
+	if (s2 == NULL)
+		s2 = "";
+
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
+
+	concat_str = malloc(sizeof(char) * len);
+
+	if (concat_str == NULL)
 		return (NULL);
-	}
-	for (i = 0; i < len1; i++)
-	{
-		str[i] = s1[i];
-	}
-	for (i = 0, j = len1; i < len2 && j < len; j++, i++)
-	{
-		str[j] = s2[i];
-	}
-	str[len] = '\0';
-	return (str);
+
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
+
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
+
+	return (concat_str);
 }
